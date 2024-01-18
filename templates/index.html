@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <title>SocketIO & Python Flask</title>
+</head>
+<body>
+    <section id="principal">
+        <h1 id="hola">Python Flask & SocketIO App</h1>
+        
+        <div>
+            <input type="text" id="myMessage">
+            <button type="button" id="send">Send</button>
+        </div>
+        <ul id="messages" ></ul>
+    </section>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js" integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const socket = io();
+        socket.emit("message")
+        
+        socket.on('message',function(msg){
+            $('#messages').append('<li class="elei">' + msg + '</li>')
+        });
+
+        $('#send').on('click',function(){
+            socket.send($('#myMessage').val());
+            console.log($('#myMessage').val());
+            ($('#myMessage').val(''))
+        });
+    </script>
+</body>
+</html>

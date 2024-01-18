@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#principal {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#principal #hola {
+  color: red;
+  font-weight: bold;
+  font-size: 50px;
+  margin-bottom: 100px;
+}
+#principal div {
+  display: flex;
+}
+#principal div #send {
+  width: 70px;
+  background: red;
+  color: white;
+  height: 50px;
+  font-weight: bold;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+}
+#principal div #myMessage {
+  border-radius: 5px;
+  width: 400px;
+  height: 50px;
+  border: 1px solid red;
+  margin-right: 50px;
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */
